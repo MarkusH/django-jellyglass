@@ -14,3 +14,35 @@ django-jellyglass
 
 **django-jellyglass** is a reusable Django application to act as a better
 honeypot.
+
+
+Installation
+============
+
+Use PIP to install **django-jellyglass** from PyPI::
+
+   $ pip install django-jellyglass
+
+Add ``jellyglass.apps.JellyGlassConfig`` to your ``INSTALLED_APPS``::
+
+   INSTALLED_APPS = [
+       # ...
+       'jellyglass.apps.JellyGlassConfig',
+   ]
+
+Add the following ``urlpatterns`` to your root url configuration::
+
+   urlpatterns = [
+       # ...
+       url(r'^', include('jellyglass.urls', namespace='jellyglass')),
+       # ...
+   ]
+
+Run migrations::
+
+   $ python manage.py migrate
+   Operations to perform:
+     Apply all migrations: admin, auth, contenttypes, jellyglass, sessions
+   Running migrations:
+     Rendering model states... DONE
+     Applying jellyglass.0001_initial... OK
