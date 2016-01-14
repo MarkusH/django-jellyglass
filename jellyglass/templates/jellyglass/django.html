@@ -1,0 +1,83 @@
+{% load static %}<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Log in | Django site admin</title>
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/base.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% static "admin/css/ie.css" %}" /><![endif]-->
+
+<script type="text/javascript">window.__admin_media_prefix__ = "{% static "admin/" %}";</script>
+<script type="text/javascript">window.__admin_utc_offset__ = "0";</script>
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class=" login">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="{% url 'jellyglass:django_admin' %}">Django administration</a></h1>
+
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+    
+        
+    
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        
+        
+
+
+
+
+<div id="content-main">
+<form action="{% url 'jellyglass:django_admin_login' %}?next={% url 'jellyglass:django_admin' %}" method="post" id="login-form">{% csrf_token %}
+  <div class="form-row">
+    
+    <label class="required" for="id_username">Username:</label> <input id="id_username" maxlength="254" name="username" type="text" />
+  </div>
+  <div class="form-row">
+    
+    <label class="required" for="id_password">Password:</label> <input id="id_password" name="password" type="password" />
+    <input type="hidden" name="next" value="{% url 'jellyglass:django_admin' %}" />
+  </div>
+  
+  
+  <div class="submit-row">
+    <label>&nbsp;</label><input type="submit" value="Log in" />
+  </div>
+</form>
+
+<script type="text/javascript">
+document.getElementById('id_username').focus()
+</script>
+</div>
+
+        
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>
