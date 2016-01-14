@@ -1,0 +1,13 @@
+.*
+*.py[co]
+__pycache__
+coverage.xml
+build/
+django_jellyglass.egg-info/
+dist/
+docs/build/
+
+!.bumpversion.cfg
+!.coveragerc
+!.gitignore
+!.travis.yml
