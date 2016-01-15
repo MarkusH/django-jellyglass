@@ -1,7 +1,7 @@
-import json
-
 from django.db import models
 from django.utils.timezone import now
+
+from .utils import dump_fields, filter_sensitive_data
 
 
 class Spoon(models.Model):
@@ -31,14 +31,10 @@ class Spoon(models.Model):
         spoon.referer = request.META.get('HTTP_REFERER', 'N/A')
         spoon.user_agent = request.META.get('HTTP_USER_AGENT', 'N/A')
 
-        if get_fields == "__ALL__":
-            spoon.get = json.dumps(request.GET.dict())
-        else:
-            spoon.get = json.dumps({k: request.GET.get(k, '') for k in get_fields})
-        if post_fields == "__ALL__":
-            spoon.post = json.dumps(request.POST.dict())
-        else:
-            spoon.post = json.dumps({k: request.POST.get(k, '') for k in post_fields})
+        spoon.get = dump_fields(request.GET.dict(), get_fields)
+
+        filtered_data = filter_sensitive_data(request, request.POST.dict())
+        spoon.post = dump_fields(filtered_data, post_fields)
 
         spoon.save()
         return spoon

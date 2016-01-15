@@ -58,3 +58,7 @@ Enable or disable the Django admin with::
 Enable or disable the Wordpress admin with::
 
    JELLYGLASS_WORDPRESS = True
+
+Enable or disable the recording of sensitive data with::
+
+   JELLYGLASS_HIDE_SENSITIVE_POST_PARAMETERS = False
