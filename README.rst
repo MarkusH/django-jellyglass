@@ -46,3 +46,15 @@ Run migrations::
    Running migrations:
      Rendering model states... DONE
      Applying jellyglass.0001_initial... OK
+
+
+Settings
+========
+
+Enable or disable the Django admin with::
+
+   JELLYGLASS_DJANGO = True
+
+Enable or disable the Wordpress admin with::
+
+   JELLYGLASS_WORDPRESS = True
