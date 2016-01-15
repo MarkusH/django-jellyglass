@@ -14,7 +14,9 @@ def django_admin(request):
     return redirect(to)
 
 
-@record_spoon('django')
+@record_spoon('Django',
+              get_fields=['next'],
+              post_fields=['username', 'password', 'next'])
 def django_admin_login(request):
     return render(request, 'jellyglass/django.html')
 
@@ -29,7 +31,9 @@ def wordpress_admin(request):
 
 
 @csrf_exempt
-@record_spoon('wordpress')
+@record_spoon('Wordpress',
+              get_fields=['redirect_to', 'reauth'],
+              post_fields=['log', 'pwd', 'rememberme', 'wp-submit', 'redirect_to', 'testcookie'])
 def wordpress_admin_login(request):
     context = {
         'domain': '{scheme}://{host}'.format(scheme=request.scheme, host=request.get_host()),
