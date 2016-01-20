@@ -66,5 +66,5 @@ Enable or disable the recording of sensitive data with::
 In case you're behind a reverse proxy (e.g. Apache, Nginx) this setting can be
 used to specify where the actual ``REMOTE_ADDR`` is stored::
 
-   JELLYGLASS_HIDE_SENSITIVE_POST_PARAMETERS = 'REMOTE_ADDR'
+   JELLYGLASS_REMOTE_ADDR_KEY = 'REMOTE_ADDR'
    # For a header 'X-REAL-IP' this would be 'HTTP_X_REAL_IP'
