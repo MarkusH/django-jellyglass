@@ -62,3 +62,9 @@ Enable or disable the Wordpress admin with::
 Enable or disable the recording of sensitive data with::
 
    JELLYGLASS_HIDE_SENSITIVE_POST_PARAMETERS = False
+
+In case you're behind a reverse proxy (e.g. Apache, Nginx) this setting can be
+used to specify where the actual ``REMOTE_ADDR`` is stored::
+
+   JELLYGLASS_HIDE_SENSITIVE_POST_PARAMETERS = 'REMOTE_ADDR'
+   # For a header 'X-REAL-IP' this would be 'HTTP_X_REAL_IP'

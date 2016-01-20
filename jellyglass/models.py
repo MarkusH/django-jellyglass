@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils.timezone import now
 
@@ -27,7 +28,8 @@ class Spoon(models.Model):
         spoon = cls(jelly=jelly)
 
         spoon.url = request.build_absolute_uri()
-        spoon.remote_addr = request.META.get('REMOTE_ADDR')
+        remote_addr_key = getattr(settings, 'JELLYGLASS_REMOTE_ADDR_KEY', 'REMOTE_ADDR')
+        spoon.remote_addr = request.META.get(remote_addr_key)
         spoon.referer = request.META.get('HTTP_REFERER', 'N/A')
         spoon.user_agent = request.META.get('HTTP_USER_AGENT', 'N/A')
 
