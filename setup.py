@@ -13,7 +13,7 @@ def read(*parts):
 
 setup(
     name='django-jellyglass',
-    version='0.2.1',
+    version='0.2.2',
     description='The ultimate Django admin honeypot.',
     long_description=read('README.rst'),
     author='Markus Holtermann',
