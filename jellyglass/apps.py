@@ -6,4 +6,4 @@ from django.apps import AppConfig
 
 class JellyGlassConfig(AppConfig):
     name = 'jellyglass'
-    label = 'Jelly Glass'
+    verbose_name = 'Jelly Glass'
