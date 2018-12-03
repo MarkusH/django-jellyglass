@@ -2,6 +2,10 @@
 django-jellyglass
 =================
 
+.. image:: http://unmaintained.tech/badge.svg
+   :target: http://unmaintained.tech/
+   :alt: No Maintenance Intended 
+
 .. image:: https://img.shields.io/pypi/v/django-jellyglass.svg
    :target: https://pypi.python.org/pypi/django-jellyglass
 
